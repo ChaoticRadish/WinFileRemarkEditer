@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MS.WindowsAPICodePack.Internal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -45,9 +46,11 @@ namespace WinFileRemarkEditer.UI
             Close();
         }
 
-        protected override void OnShown(EventArgs e)
+        protected override async void OnShown(EventArgs e)
         {
             base.OnShown(e);
+            var result = await FileRemarkHelper.GetPathRemark(IsFile, Path);
+            textBox_备注编辑框.Text = result.IsSuccess ? result.Data : "";
             textBox_备注编辑框.Focus();
         }
 

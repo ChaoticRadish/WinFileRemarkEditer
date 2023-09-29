@@ -10,6 +10,7 @@ namespace WinFileRemarkEditer.Datas
     {
         Normal,
         QuickFile,
-        QuickFolder
+        QuickFolder,
+        TryAdmin,
     }
 }
