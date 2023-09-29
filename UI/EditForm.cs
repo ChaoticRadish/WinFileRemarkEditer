@@ -1,5 +1,4 @@
-﻿using MS.WindowsAPICodePack.Internal;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFileRemarkEditer.Core;
+using WinFileRemarkEditer.Datas;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WinFileRemarkEditer.UI
@@ -20,6 +20,7 @@ namespace WinFileRemarkEditer.UI
             InitializeComponent();
 
             ClearSelect();
+
         }
 
         #region 当前输入
@@ -86,7 +87,7 @@ namespace WinFileRemarkEditer.UI
             if (result == DialogResult.OK)
             {
                 string fileName = dialog.FileName;
-                if (File.Exists(fileName)) 
+                if (File.Exists(fileName))
                 {
                     SelectFile(fileName);
                 }
@@ -117,12 +118,51 @@ namespace WinFileRemarkEditer.UI
             var result = await FileRemarkHelper.SetPathRemark(IsFile, FullPath, remark);
             if (result.IsSuccess)
             {
-                MessageBox.Show(this, result.Info, "获取备注完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(this, result.Info, "设置备注完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show(this, result.Info, "获取备注失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, result.Info, "设置备注失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void 注册系统右键菜单_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool isRegister = RegisterSystemRightButtonMenu.CheckRegister();
+            SetResult result = false;
+            string action;
+            if (isRegister)
+            {
+                action = "注册";
+                result = RegisterSystemRightButtonMenu.Unregister();
+            }
+            else
+            {
+                action = "解除注册";
+                result = RegisterSystemRightButtonMenu.Register();
+            }
+            if (result.IsSuccess)
+            {
+                MessageBox.Show(this, result.Info, $"{action}成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                UpdateShowing_注册系统右键菜单();
+            }
+            else
+            {
+                MessageBox.Show(this, result.Info, $"{action}失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        #region 重载
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+            UpdateShowing_注册系统右键菜单();
+        }
+        #endregion
+
+        private void UpdateShowing_注册系统右键菜单()
+        {
+            注册系统右键菜单_ToolStripMenuItem.Text = !RegisterSystemRightButtonMenu.CheckRegister() ? "注册系统右键菜单" : "解除注册系统右键菜单";
         }
     }
 }

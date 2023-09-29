@@ -28,100 +28,122 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox_当前选择文件或文件夹 = new System.Windows.Forms.TextBox();
-            this.button_选择文件 = new System.Windows.Forms.Button();
-            this.button_选择文件夹 = new System.Windows.Forms.Button();
-            this.textBox_备注编辑框 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button_设置 = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            label1 = new Label();
+            textBox_当前选择文件或文件夹 = new TextBox();
+            button_选择文件 = new Button();
+            button_选择文件夹 = new Button();
+            textBox_备注编辑框 = new TextBox();
+            label2 = new Label();
+            button_设置 = new Button();
+            menuStrip1 = new MenuStrip();
+            注册系统右键菜单_ToolStripMenuItem = new ToolStripMenuItem();
+            menuStrip1.SuspendLayout();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(11, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "选择文件/文件夹: ";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            label1.Location = new Point(11, 34);
+            label1.Name = "label1";
+            label1.Size = new Size(100, 23);
+            label1.TabIndex = 0;
+            label1.Text = "选择文件/文件夹: ";
+            label1.TextAlign = ContentAlignment.MiddleRight;
             // 
             // textBox_当前选择文件或文件夹
             // 
-            this.textBox_当前选择文件或文件夹.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_当前选择文件或文件夹.Location = new System.Drawing.Point(121, 8);
-            this.textBox_当前选择文件或文件夹.Name = "textBox_当前选择文件或文件夹";
-            this.textBox_当前选择文件或文件夹.ReadOnly = true;
-            this.textBox_当前选择文件或文件夹.Size = new System.Drawing.Size(354, 23);
-            this.textBox_当前选择文件或文件夹.TabIndex = 1;
+            textBox_当前选择文件或文件夹.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            textBox_当前选择文件或文件夹.Location = new Point(121, 31);
+            textBox_当前选择文件或文件夹.Name = "textBox_当前选择文件或文件夹";
+            textBox_当前选择文件或文件夹.ReadOnly = true;
+            textBox_当前选择文件或文件夹.Size = new Size(438, 23);
+            textBox_当前选择文件或文件夹.TabIndex = 1;
             // 
             // button_选择文件
             // 
-            this.button_选择文件.Location = new System.Drawing.Point(121, 37);
-            this.button_选择文件.Name = "button_选择文件";
-            this.button_选择文件.Size = new System.Drawing.Size(75, 23);
-            this.button_选择文件.TabIndex = 2;
-            this.button_选择文件.Text = "选择文件";
-            this.button_选择文件.UseVisualStyleBackColor = true;
-            this.button_选择文件.Click += new System.EventHandler(this.button_选择文件_Click);
+            button_选择文件.Location = new Point(121, 60);
+            button_选择文件.Name = "button_选择文件";
+            button_选择文件.Size = new Size(75, 23);
+            button_选择文件.TabIndex = 2;
+            button_选择文件.Text = "选择文件";
+            button_选择文件.UseVisualStyleBackColor = true;
+            button_选择文件.Click += button_选择文件_Click;
             // 
             // button_选择文件夹
             // 
-            this.button_选择文件夹.Location = new System.Drawing.Point(202, 37);
-            this.button_选择文件夹.Name = "button_选择文件夹";
-            this.button_选择文件夹.Size = new System.Drawing.Size(95, 23);
-            this.button_选择文件夹.TabIndex = 3;
-            this.button_选择文件夹.Text = "选择文件夹";
-            this.button_选择文件夹.UseVisualStyleBackColor = true;
-            this.button_选择文件夹.Click += new System.EventHandler(this.button_选择文件夹_Click);
+            button_选择文件夹.Location = new Point(202, 60);
+            button_选择文件夹.Name = "button_选择文件夹";
+            button_选择文件夹.Size = new Size(95, 23);
+            button_选择文件夹.TabIndex = 3;
+            button_选择文件夹.Text = "选择文件夹";
+            button_选择文件夹.UseVisualStyleBackColor = true;
+            button_选择文件夹.Click += button_选择文件夹_Click;
             // 
             // textBox_备注编辑框
             // 
-            this.textBox_备注编辑框.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_备注编辑框.Location = new System.Drawing.Point(121, 66);
-            this.textBox_备注编辑框.Name = "textBox_备注编辑框";
-            this.textBox_备注编辑框.Size = new System.Drawing.Size(274, 23);
-            this.textBox_备注编辑框.TabIndex = 4;
+            textBox_备注编辑框.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            textBox_备注编辑框.Location = new Point(121, 89);
+            textBox_备注编辑框.MaxLength = 255;
+            textBox_备注编辑框.Name = "textBox_备注编辑框";
+            textBox_备注编辑框.Size = new Size(358, 23);
+            textBox_备注编辑框.TabIndex = 4;
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(12, 69);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 17);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "当前备注: ";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            label2.Location = new Point(12, 92);
+            label2.Name = "label2";
+            label2.Size = new Size(104, 17);
+            label2.TabIndex = 5;
+            label2.Text = "当前备注: ";
+            label2.TextAlign = ContentAlignment.MiddleRight;
             // 
             // button_设置
             // 
-            this.button_设置.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_设置.Location = new System.Drawing.Point(400, 66);
-            this.button_设置.Name = "button_设置";
-            this.button_设置.Size = new System.Drawing.Size(75, 23);
-            this.button_设置.TabIndex = 6;
-            this.button_设置.Text = "设置";
-            this.button_设置.UseVisualStyleBackColor = true;
-            this.button_设置.Click += new System.EventHandler(this.button_设置_Click);
+            button_设置.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button_设置.Location = new Point(484, 89);
+            button_设置.Name = "button_设置";
+            button_设置.Size = new Size(75, 23);
+            button_设置.TabIndex = 6;
+            button_设置.Text = "设置";
+            button_设置.UseVisualStyleBackColor = true;
+            button_设置.Click += button_设置_Click;
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { 注册系统右键菜单_ToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(571, 25);
+            menuStrip1.TabIndex = 7;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // 注册系统右键菜单_ToolStripMenuItem
+            // 
+            注册系统右键菜单_ToolStripMenuItem.Name = "注册系统右键菜单_ToolStripMenuItem";
+            注册系统右键菜单_ToolStripMenuItem.Size = new Size(116, 21);
+            注册系统右键菜单_ToolStripMenuItem.Text = "注册系统右键菜单";
+            注册系统右键菜单_ToolStripMenuItem.Click += 注册系统右键菜单_ToolStripMenuItem_Click;
             // 
             // EditForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(487, 96);
-            this.Controls.Add(this.button_设置);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox_备注编辑框);
-            this.Controls.Add(this.button_选择文件夹);
-            this.Controls.Add(this.button_选择文件);
-            this.Controls.Add(this.textBox_当前选择文件或文件夹);
-            this.Controls.Add(this.label1);
-            this.Name = "EditForm";
-            this.Text = "文件备注编辑";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(571, 124);
+            Controls.Add(button_设置);
+            Controls.Add(label2);
+            Controls.Add(textBox_备注编辑框);
+            Controls.Add(button_选择文件夹);
+            Controls.Add(button_选择文件);
+            Controls.Add(textBox_当前选择文件或文件夹);
+            Controls.Add(label1);
+            Controls.Add(menuStrip1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MainMenuStrip = menuStrip1;
+            Name = "EditForm";
+            Text = "文件备注编辑";
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -133,5 +155,7 @@
         private TextBox textBox_备注编辑框;
         private Label label2;
         private Button button_设置;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem 注册系统右键菜单_ToolStripMenuItem;
     }
 }
